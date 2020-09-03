@@ -1,0 +1,11 @@
+¿Como crear una app?
+python manage.py startapp "nombreapp"
+
+1)Luego configurar el urls.py del 
+proyecto, y agregar "include".
+2)Crear "views.py" en la app. Configurar 
+el "app.py", el "urls.py", de la app.
+3)Crear views, y templates.
+4)Agregar en el settings del proyecto
+la aplicacion con su archivo de configuración.
+
