@@ -18,7 +18,7 @@ from django.urls import path, include
 from dj1 import views
 
 urlpatterns = [
-	#path('admin/', admin.views)
+	path('admin/', admin.site.urls),
     path('home/', views.homeview),
     path('turnos/',include('turnos.urls'))
 ]
