@@ -20,3 +20,12 @@ class Proveedor(models.Model):
     descrpcion= models.CharField(max_length=30)
     rubro= models.CharField(max_length=30)
 
+
+class Turnos(models.Model):
+	idcliente = models.ForeignKey(Cliente)
+    idproveedor = models.ForeignKey(Proveedor)
+    turno = models.IntegerField()
+    fecha = models.CharField(max_length=30)
+    hora = models.CharField(max_length=30)
+    
+    
