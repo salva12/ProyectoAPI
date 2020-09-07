@@ -19,6 +19,5 @@ from dj1 import views
 
 urlpatterns = [
 	path('admin/', admin.site.urls),
-    path('home/', views.homeview),
-    path('turnos/',include('turnos.urls'))
+    path('turnos/',include('turnos.urls')),
 ]

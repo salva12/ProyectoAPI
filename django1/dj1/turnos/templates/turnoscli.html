@@ -1,0 +1,28 @@
+
+<h4 align="center"> Mis turnos</h4>
+<div align="center">
+  <table cellspacing="10" cellpadding="10" border="3" bordercolor:yellow>
+
+      <tr>
+    
+        <th>Rubro</th>
+    
+        <th>Fecha</th>
+    
+        <th>Hora</th>
+    
+      </tr>
+      {% for turno in turnos %}
+          <tr>
+        
+            <td>{{ turno.idproveedor.rubro }}</td>
+        
+            <td>{{ turno.fecha }}</td>
+        
+            <td>{{ turno.hora }}</td>
+        
+          </tr>
+      {% endfor %}
+    
+    </table>
+</div>

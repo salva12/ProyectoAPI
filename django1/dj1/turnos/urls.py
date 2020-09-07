@@ -3,5 +3,6 @@ from django.urls import path
 from turnos import views
 
 urlpatterns = [
-    path('agenda/', views.agendaview),
+    path('homecliente/<int:idcli>', views.homecli),
+    path('homecliente/misturnos/<int:idcli>',views.get_turnoscli),
 ]
