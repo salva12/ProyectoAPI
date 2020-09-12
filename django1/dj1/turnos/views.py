@@ -10,3 +10,17 @@ def agendaview(request):
 	context = {"tabla":"t1 t2 t3 ...."}
 	return HttpResponse(temp.render(context))
 
+
+def layoutview(request):
+	temp = loader.get_template("layout.html")
+	context = {"Holi":"guacho"}
+	return HttpResponse(temp.render(context))
+
+
+def homeuserview(request):
+	temp = loader.get_template("homeuser.html")
+	context = {"Holi":"guacho"}
+	return HttpResponse(temp.render(context))
+
+
+	
