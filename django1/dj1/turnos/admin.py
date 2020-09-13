@@ -10,7 +10,7 @@ class ProveedorAdmin(admin.ModelAdmin):
     list_display = ('id','cuit','nombre','tel','rubro')
 
 class TurnosAdmin(admin.ModelAdmin):
-    list_display = ('id','idcliente','idproveedor','turno','fecha','hora')
+    list_display = ('id','idcliente','idproveedor','fecha_turno','fecha_solicitud')
 
 admin.site.register(Cliente, ClienteAdmin)
 admin.site.register(Proveedor, ProveedorAdmin)

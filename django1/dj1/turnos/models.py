@@ -22,9 +22,10 @@ class Proveedor(models.Model):
 
 
 class Turno(models.Model):
-	idcliente = models.ForeignKey(Cliente,on_delete=models.CASCADE)
+	idcliente = models.ForeignKey(Cliente,on_delete=models.CASCADE,null=True,blank=True)
 	idproveedor = models.ForeignKey(Proveedor,on_delete=models.CASCADE)
-	turno = models.IntegerField()
-	fecha = models.CharField(max_length=30)
-	hora = models.CharField(max_length=30)
+	fecha_turno = models.DateTimeField(null=False,blank=False)
+	fecha_solicitud = models.DateTimeField(null=True,blank=True)
+
+
 

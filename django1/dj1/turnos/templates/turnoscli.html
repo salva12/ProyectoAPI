@@ -7,9 +7,7 @@
     
         <th>Rubro</th>
     
-        <th>Fecha</th>
-    
-        <th>Hora</th>
+        <th>Fecha y Hora</th>   
     
       </tr>
       {% for turno in turnos %}
@@ -17,9 +15,7 @@
         
             <td>{{ turno.idproveedor.rubro }}</td>
         
-            <td>{{ turno.fecha }}</td>
-        
-            <td>{{ turno.hora }}</td>
+            <td>{{ turno.fecha_turno }}</td>
         
           </tr>
       {% endfor %}
