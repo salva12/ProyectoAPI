@@ -1,0 +1,160 @@
+{%	extends "homeuser.html" %}
+{% load static %}
+{% block content %} 
+
+<body>
+	<body>
+		<nav class="navbar deep-purple lighten-2 z-depth-3">
+			<div class="container nav-wrapper ">
+			  <a href="#" class="brand-logo"><img class="logo" src="{% static 'img/turnet_logo.svg' %}" alt=""></a>
+			  <a href="#" data-target="menu-responsive" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+	  
+			  <ul class="right hide-on-med-and-down">
+				<li><a class="white-text waves-effect waves-light transparent btn-flat" href="#">Nosotros</a></li>
+				<li><a class="registro transparent waves-effect waves-light btn" href="#"><i class="material-icons right">person</i></a></li>
+			  </ul>
+			</div>
+		  </div>
+		  </nav>			
+	
+	  <!--breadcrumbs-->
+	  <nav class="#7986cb indigo lighten-2">
+		<div class="container">
+		  <div class="nav-wrapper">
+			<div class="col s12">
+			  <a href="#!" class="breadcrumb">Home</a>
+			</div>
+		  </div>
+		</div>  
+	  </nav>
+	  <!--breadcrumbs-->
+  
+    <!--la tablita de valentina-->
+  
+      <body>
+        <div class="container">
+          
+    
+            <div style="height:50px">
+                <h3>Proveedores de turnos</h3>
+             </div>
+         
+    
+          <input class="form-control col-md-3 light-table-filter" data-table="order-table" type="text" placeholder="Filtre la busqueda...">
+          <hr>
+    
+          <table class="table table-bordered order-table ">
+            <thead>
+              <tr>
+                <th>CUIT</th>
+                <th>NOMBRE</th>
+                <th>APELLIDO</th>
+                <th>DIRECCION</th>
+                <th>TEL</th>
+                <th>MAIL</th>
+                <th>DESCRIPCION</th>
+                <TH>RUBRO</TH>
+                <th>ACCIONES</th>
+              </tr>
+            </thead>
+            {% for prove in proveedores %}
+             <tr>
+    
+                <td>{{ prove.cuit }}</td>
+    
+                <td>{{ prove.nombre }}</td>
+    
+                <td>{{ prove.apellido }}</td>
+    
+                <td>{{ prove.direccion }}</td>
+    
+                <td>{{ prove.tel }}</td>
+    
+                <td>{{ prove.mail }}</td>
+    
+                <td>{{ prove.descripcion }}</td>
+    
+                <td>{{ prove.rubro }}</td>
+    
+                <TD>
+                  <button class="btn btn-info" type="button">
+                          Programar turno<span class="caret"></span>
+                        </button>
+                </TD>
+    
+            </tr>
+            {% endfor %}
+          </table>
+    
+      </body>
+
+    <!--la tablita de valentina-->
+
+</body>
+{% endblock %}  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

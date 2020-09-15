@@ -20,14 +20,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-<<<<<<< HEAD
 	path('admin/', admin.site.urls),
     path('turnos/',include('turnos.urls')),
 ]
-=======
-	#path('admin/', admin.views)
-    path('home/', views.homeview),
-    path('turnos/',include('turnos.urls')),
-    path('templates/Layout.html', views.layoutview),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
->>>>>>> front_dev
+

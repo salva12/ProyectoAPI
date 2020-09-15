@@ -1,5 +1,34 @@
+{%	extends "homeuser.html" %}
+{% load static %}
+{% block content %} 
 
-<h4 align="center"> Mis turnos</h4>
+<body>
+	<body>
+		<nav class="navbar deep-purple lighten-2 z-depth-3">
+			<div class="container nav-wrapper ">
+			  <a href="#" class="brand-logo"><img class="logo" src="{% static 'img/turnet_logo.svg' %}" alt=""></a>
+			  <a href="#" data-target="menu-responsive" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+	  
+			  <ul class="right hide-on-med-and-down">
+				<li><a class="white-text waves-effect waves-light transparent btn-flat" href="#">Nosotros</a></li>
+				<li><a class="registro transparent waves-effect waves-light btn" href="#"><i class="material-icons right">person</i>{{clientenom}}, {{clienteape}}</a></li>
+			  </ul>
+			</div>
+		  </div>
+		  </nav>			
+	
+	  <!--breadcrumbs-->
+	  <nav class="#7986cb indigo lighten-2">
+		<div class="container">
+		  <div class="nav-wrapper">
+			<div class="col s12">
+			  <a href="#!" class="breadcrumb">Home</a>
+			</div>
+		  </div>
+		</div>  
+	  </nav>
+	  <!--breadcrumbs-->
+    <h4 align="center"> Mis turnos</h4>
 <div align="center">
   <table cellspacing="10" cellpadding="10" border="3" >
 
@@ -19,6 +48,14 @@
         
           </tr>
       {% endfor %}
-    
+   
     </table>
+    <button class="btn btn-info" type="button" ><a href="/turnos/homecliente/misturnos/lista/" target="_blank">Programar nuevo turno</a><span class="caret"></span>
+    </button>
 </div>
+</body>
+{% endblock %}  
+
+
+
+

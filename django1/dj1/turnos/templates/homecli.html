@@ -1,11 +1,33 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>	</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-</head>
+{%	extends "homeuser.html" %}
+{% load static %}
+{% block content %} 
+
 <body>
-	<h4 align="center">Bienvenido/a {{apellidocli}}, {{nombrecli}}</h4>
+	<body>
+		<nav class="navbar deep-purple lighten-2 z-depth-3">
+			<div class="container nav-wrapper ">
+			  <a href="#" class="brand-logo"><img class="logo" src="{% static 'img/turnet_logo.svg' %}" alt=""></a>
+			  <a href="#" data-target="menu-responsive" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+	  
+			  <ul class="right hide-on-med-and-down">
+				<li><a class="white-text waves-effect waves-light transparent btn-flat" href="#">Nosotros</a></li>
+				<li><a class="registro transparent waves-effect waves-light btn" href="#"><i class="material-icons right">person</i>{{apellidocli}}, {{nombrecli}}</a></li>
+			  </ul>
+			</div>
+		  </div>
+		  </nav>			
+	
+	  <!--breadcrumbs-->
+	  <nav class="#7986cb indigo lighten-2">
+		<div class="container">
+		  <div class="nav-wrapper">
+			<div class="col s12">
+			  <a href="#!" class="breadcrumb">Home</a>
+			</div>
+		  </div>
+		</div>  
+	  </nav>
+	  <!--breadcrumbs-->
 	<div class="container">
 		<div class="row">
 		  <div class="col-sm">
@@ -19,7 +41,5 @@
 		  </div>
 		</div>
 	  </div>
-	
-
 </body>
-</html>
+{% endblock %}  

@@ -12,14 +12,13 @@ def homecli(request,idcli):
 	context = {"nombrecli":cli.nombre,"apellidocli":cli.apellido,"idcli":idcli}
 	return HttpResponse(temp.render(context))
 
-<<<<<<< HEAD
 #la siguiente view me muestra para un cliente determinado todos los turnos que tiene asignados actualmente
 def get_turnoscli(request,idcli):
 	turnos = Turno.objects.all().filter(idcliente=idcli)
+	cliente = Cliente.objects.get(id=idcli)
 	temp = loader.get_template("turnoscli.html")
-	context = {"turnos":turnos}
+	context = {"turnos":turnos,"clienteape":cliente.apellido,"clientenom":cliente.nombre}
 	return HttpResponse(temp.render(context))
-=======
 
 def layoutview(request):
 	temp = loader.get_template("layout.html")
@@ -32,6 +31,12 @@ def homeuserview(request):
 	context = {"Holi":"guacho"}
 	return HttpResponse(temp.render(context))
 
+def listaproveedores(request):
+	prov = Proveedor.objects.all()
+	#cliente = Cliente.objects.get(id=idcli)
+	temp = loader.get_template("listaprovees.html")
+	context = {"proveedores":prov}
+	return HttpResponse(temp.render(context))
+
 
 	
->>>>>>> front_dev
