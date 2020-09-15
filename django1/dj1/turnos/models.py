@@ -20,7 +20,7 @@ class Proveedor(models.Model):
 	descrpcion= models.CharField(max_length=30)
 	rubro= models.CharField(max_length=30)
 
-#a ver si anduvo gitignore 2do intetno
+#a ver si anduvo gitignore 2do intetno 3intento algo masssss
 class Turno(models.Model):
 	idcliente = models.ForeignKey(Cliente,on_delete=models.CASCADE,null=True,blank=True)
 	idproveedor = models.ForeignKey(Proveedor,on_delete=models.CASCADE)
