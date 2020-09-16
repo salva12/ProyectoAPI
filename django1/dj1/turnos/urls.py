@@ -8,4 +8,5 @@ urlpatterns = [
     path('layout/' , views.layoutview),
     path('homeuser/', views.homeuserview),
     path('homecliente/misturnos/lista/', views.listaproveedores),
+    path('login/', views.loginview),
 ]

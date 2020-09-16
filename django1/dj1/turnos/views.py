@@ -31,6 +31,13 @@ def homeuserview(request):
 	context = {"Holi":"guacho"}
 	return HttpResponse(temp.render(context))
 
+
+def loginview(request):
+	temp = loader.get_template("login.html")
+	context = {"Holi":"guacho"}
+	return HttpResponse(temp.render(context))
+
+
 def listaproveedores(request):
 	prov = Proveedor.objects.all()
 	#cliente = Cliente.objects.get(id=idcli)

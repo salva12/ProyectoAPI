@@ -1,3 +1,7 @@
+{%	extends "layout.html" %}
+{% load static %}
+{% block content %} 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,38 +15,24 @@
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <!--CSS-->
-    <link rel="stylesheet" href="css/materialize.css">
-    <link rel="stylesheet" href="css/materialize.min.css">
-    <link rel="stylesheet" href="css/loginstyle.css">
+    <link rel="stylesheet" href="{%  static  'css/materialize.css' %}">
+    <link rel="stylesheet" href="{%  static  'css/materialize.min.css' %}">
+    <link rel="stylesheet" href="{%  static  'css/loginstyle.css' %}">
     <!--FONTS-->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
   
 
-    <title>Turnet</title>
+    <title>Login</title>
 </head>
 <body>
-  <div class="row dos"></div>
-    <div class="col s12 l5 offset-l5.5">
-  <div class="carousel">
-    <div class="carousel-item ">
-      <p class="text-black text-center">ESTO ES TURNET</p>
-      </div>
-      <div class="carousel-item ">
-      <p class="text-black text-center"> TU APP DE TURNOS</p>
-      </div>
-      <div class="carousel-item">
-      <p class="text-black text-center">AH RE</p>
-        </div>
-     </div>
-    </div>
-
+  
 
 
 <!--LOGIN-->
-    <div class="row login uno">
-        <div class="col s12 l6 offset-l5">
+    <div class="row login">
+        <div class="col s12 offset-l10">
           <div class="card z-depth-3">
-            <div class="card-action indigo darken-4 white-text">
+            <div class="card-action z-depth-1 white-text">
                 <h3>Iniciar Sesión</h3>
             </div>
               <div class="card-content">
@@ -62,19 +52,22 @@
                           <span class="lever grey-text darken-4"></span>
                           Recordarme
                         </label>
+                      </div><br>
+                      <div>
+                        <p>¿Todavía no tenés cuenta? Registrate <a class="texto" href="register.html"> ACÁ</a></p>
                       </div>
                   </div><br>
                   <div class="form-field">
-                    <button class="btn-large  waves-effect waves-light ">Ingresar</button>
+                    <button class="btn-large waves-effect waves-green ">Ingresar</button>
                   </div>
               </div>
           </div>
         </div>
       </div>
       <!--JavaScript at end of body for optimized loading-->
-    <script type="text/javascript" src="js/materialize.min.js"></script>
-    <script type="text/javascript" src="js/materialize.js"></script>
-    <script type="text/javascript" src="js/script.js"></script>
-   
+    <script type="text/javascript" src="{% static  'js/materialize.min.js'%}"></script>
+    <script type="text/javascript" src="{% static  'js/materialize.js' %}"></script>
+    <script type="text/javascript" src="{% static  'js/script.js' %}"></script>
+   {% endblock content %}
 </body>
 </html>

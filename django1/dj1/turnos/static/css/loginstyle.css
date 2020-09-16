@@ -5,10 +5,19 @@
 }
 
 body{
-    background: #18185b;
-}
-.login .card {
     background: white;
+}
+
+
+
+.login .card {
+
+    background-color: #575791;
+
+}
+
+.login .card-action{
+    background-color: #18185b;
 }
 
 .login label{
@@ -23,8 +32,10 @@ body{
 }
 
 
+
 .login button:hover{
     padding: 0px 40px;
+    font-size: larger;
 
 }
 
@@ -36,12 +47,10 @@ div>button{
     text-align: center;
 }
 
-.carousel-item{
-    background-color: white;
-    width:75%;
+p{
+    font-size: medium;
 }
 
-
-.dos{
-    align-items: right;
+.texto{
+    color:#0c6
 }
