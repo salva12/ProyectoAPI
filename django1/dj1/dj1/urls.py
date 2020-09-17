@@ -19,8 +19,9 @@ from dj1 import views
 from django.conf import settings
 from django.conf.urls.static import static
 
-urlpatterns = [
-	path('admin/', admin.site.urls),
+urlpatterns = [	
+    path('',views.login),
+    path('admin/', admin.site.urls),
     path('turnos/',include('turnos.urls')),
 ]
 
