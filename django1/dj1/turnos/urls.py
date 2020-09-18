@@ -7,5 +7,7 @@ urlpatterns = [
     path('homecliente/misturnos/<int:idcli>',views.get_turnoscli),
     path('layout/' , views.layoutview),
     path('homeuser/', views.homeuserview),
-    path('homecliente/misturnos/lista/<int:idcli>', views.listaproveedores),
+    path('homecliente/misturnos/<int:idcli>/lista/', views.listaproveedores),
+    path('homecliente/misturnos/<int:idcli>/lista/turnosprov/<int:idprov>',views.turnosprov),
+    path('homecliente/misturnos/<int:idcli>/lista/turnosprov/<int:idprov>/confirmar/<int:idturno>',views.confirmacion),
 ]

@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from turnos.models import *
+from datetime import datetime
 # Create your views here.
 
 from django.http import HttpResponse
@@ -38,5 +39,21 @@ def listaproveedores(request,idcli):
 	context = {"proveedores":prov,"nombrecli":cliente.nombre,"apellidocli":cliente.apellido, "idcli":idcli}
 	return HttpResponse(temp.render(context))
 
+def turnosprov(request,idcli,idprov):
+	turnoslibres = Turno.objects.all().filter(idproveedor=idprov,idcliente__isnull=True )
+	cliente = Cliente.objects.get(id=idcli)
+	temp = loader.get_template("turnosprov.html")
+	context = { "turnoslibres":turnoslibres,"nombrecli":cliente.nombre,"apellidocli":cliente.apellido,"idcli":idcli}
+	return HttpResponse(temp.render(context))
+
+def confirmacion(request,idcli,idprov,idturno):
+	turno = Turno.objects.get(id=idturno)
+	cliente = Cliente.objects.get(id=idcli)
+	turno.idcliente = cliente
+	turno.fecha_solicitud = datetime.now()
+	turno.save()
+	temp = loader.get_template("exito.html")
+	context = {"nombrecli":cliente.nombre,"apellidocli":cliente.apellido,"idcli":idcli,"fechaturno":turno.fecha_turno,"profesional":turno.idproveedor.apellido,"dirprof":turno.idproveedor.direccion,"celprof":turno.idproveedor.tel}
+	return HttpResponse(temp.render(context))
 
 	

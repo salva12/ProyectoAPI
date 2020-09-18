@@ -11,7 +11,7 @@
 	  
 			  <ul class="right hide-on-med-and-down">
 				<li><a class="white-text waves-effect waves-light transparent btn-flat" href="#">Nosotros</a></li>
-				<li><a class="registro transparent waves-effect waves-light btn" href="#"><i class="material-icons right">person</i>{{clientenom}}, {{clienteape}}</a></li>
+				<li><a class="registro transparent waves-effect waves-light btn" href="#">{{nombrecli}}, {{apellidocli}}<i class="material-icons right">person</i></a></li>
 			  </ul>
 			</div>
 		  </div>
@@ -23,13 +23,15 @@
 		  <div class="nav-wrapper">
 			<div class="col s12">
 			  <a href="/turnos/homecliente/{{idcli}}" class="breadcrumb">Home</a>
-			  <a href="#!" class="breadcrumb">Mis Turnos</a>
+              <a href="#!" class="breadcrumb">Mis Turnos</a>
+              <a href="#!" class="breadcrumb">Proveedores</a>
+              <a href="#!" class="breadcrumb">Turnos Disponibles</a>
 			</div>
 		  </div>
 		</div>  
 	  </nav>
 	  <!--breadcrumbs-->
-	<h4 align="center"> Mis turnos</h4>
+	<h4 align="center"> Turnos Disponibles </h4>
 <div align="center">
   <table cellspacing="10" cellpadding="10" border="3" >
 
@@ -38,25 +40,23 @@
         <th>Rubro</th>
     
         <th>Fecha y Hora</th>   
+
+        <th>Acciones</th>  
     
       </tr>
-      {% for turno in turnos %}
+      {% for turno in turnoslibres %}
           <tr>
         
             <td>{{ turno.idproveedor.rubro }}</td>
         
             <td>{{ turno.fecha_turno }}</td>
-        
+            
+            <td><a href="/turnos/homecliente/misturnos/{{idcli}}/lista/turnosprov/{{turno.idproveedor.id}}/confirmar/{{turno.id}}"> Programar Turno</a></td>
           </tr>
       {% endfor %}
    
     </table>
-    <a href="/turnos/homecliente/misturnos/{{idcli}}/lista" target="">Programar nuevo turno</a>
-   
+    
 </div>
 </body>
 {% endblock %}  
-
-
-
-

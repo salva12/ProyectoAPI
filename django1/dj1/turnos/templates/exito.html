@@ -1,0 +1,68 @@
+{%	extends "homeuser.html" %}
+{% load static %}
+{% block content %} 
+<nav class="navbar deep-purple lighten-2 z-depth-3">
+    <div class="container nav-wrapper ">
+      <a href="#" class="brand-logo"><img class="logo" src="{% static 'img/turnet_logo.svg' %}" alt=""></a>
+      <a href="#" data-target="menu-responsive" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+
+      <ul class="right hide-on-med-and-down">
+        <li><a class="white-text waves-effect waves-light transparent btn-flat" href="#">Nosotros</a></li>
+        <li><a class="registro transparent waves-effect waves-light btn" href="#">{{nombrecli}}, {{apellidocli}}<i class="material-icons right">person</i></a></li>
+      </ul>
+    </div>
+  </div>
+  </nav>			
+
+<!--breadcrumbs-->
+<nav class="#7986cb indigo lighten-2">
+<div class="container">
+  <div class="nav-wrapper">
+    <div class="col s12">
+      <a href="/turnos/homecliente/{{idcli}}" class="breadcrumb">Home</a>
+      <a href="#!" class="breadcrumb">Mis Turnos</a>
+      <a href="#!" class="breadcrumb">Proveedores</a>
+      <a href="#!" class="breadcrumb">Turnos Disponibles</a>
+      <a href="#!" class="breadcrumb">Turno Exitoso</a>
+    </div>
+  </div>
+</div>  
+</nav>
+<!--breadcrumbs-->
+<h5 align='center'>Su turno ha sido programado con éxito</h5>
+<div class="container">
+    <div class="row">
+        <div class="col s2 m4">
+          <div class="card indigo lighten-2">
+            <div class="card-content white-text">
+              <span class="card-title"><i class="material-icons">date_range</i><b> TURNO</b></span>
+              <p><b>{{fechaturno}}</b></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col s2 m4">
+          <div class="card indigo lighten-2">
+            <div class="card-content white-text">
+              <span class="card-title"><i class="material-icons">person</i><b> PACIENTE </b></span>
+              <p><b>{{nombrecli}}, {{apellidocli}}</b></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col s2 m4">
+          <div class="card indigo lighten-2">
+            <div class="card-content white-text">
+              <span class="card-title"><i class="material-icons">apartment</i><b> PROFESIONAL </b></span>
+              <p><b>Dr. {{profesional}}</b></p>
+              <p>{{dirprof}}</p>
+              <p>{{celprof}}</p>
+            </div>
+          </div>
+        </div>
+        <h5 align='center'>¡Muchas gracias por confiar en nosotros!</h5>
+      <div class="container center">
+        <a class="waves-effect waves-light btn-small #7986cb indigo lighten-2">Volver</a>
+      </div>          
+
+{% endblock %}

@@ -53,7 +53,7 @@
 	  
 			  <ul class="right hide-on-med-and-down">
 				<li><a class="white-text waves-effect waves-light transparent btn-flat" href="#">Nosotros</a></li>
-				<li><a class="registro transparent waves-effect waves-light btn" href="#"><i class="material-icons right">person</i></a></li>
+				<li><a class="registro transparent waves-effect waves-light btn" href="#">{{nombrecli}}, {{apellidocli}}<i class="material-icons right">person</i></a></li>
 			  </ul>
 			</div>
 		  </div>
@@ -116,11 +116,9 @@
     
                 <td>{{ prove.rubro }}</td>
     
-                <TD>
-                  <button class="btn btn-info" type="button" >
-                          Ver<span class="caret"></span>
-                        </button>
-                </TD>
+                <td>
+                  <a href="/turnos/homecliente/misturnos/{{idcli}}/lista/turnosprov/{{prove.id}}" target="">Ver</a>
+                </td>
     
             </tr>
             {% endfor %}
