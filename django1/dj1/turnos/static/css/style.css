@@ -19,7 +19,8 @@ body {
 }
 
 .logo{
-    width:65%;
+    height: 100px;
+    width: 100px;
 }
 
 .side-logo{
@@ -27,7 +28,7 @@ body {
 }
 
 .navbar{
-    height: 100px;
+    height: 105px;
 }
 
 ul li{

@@ -12,9 +12,12 @@ body {
     flex-direction: column;
   }
 
-  .logo{
-    width:65%;
-}
+
+    .logo{
+        height: 100px;
+        width: 100px;
+    }
+
 .navbar{
     height: 100px;
 }
