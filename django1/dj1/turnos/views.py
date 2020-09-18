@@ -17,7 +17,7 @@ def get_turnoscli(request,idcli):
 	turnos = Turno.objects.all().filter(idcliente=idcli)
 	cliente = Cliente.objects.get(id=idcli)
 	temp = loader.get_template("turnoscli.html")
-	context = {"turnos":turnos,"clienteape":cliente.apellido,"clientenom":cliente.nombre}
+	context = {"turnos":turnos,"clienteape":cliente.apellido,"clientenom":cliente.nombre,"idcli":idcli}
 	return HttpResponse(temp.render(context))
 
 def layoutview(request):
@@ -31,11 +31,11 @@ def homeuserview(request):
 	context = {"Holi":"guacho"}
 	return HttpResponse(temp.render(context))
 
-def listaproveedores(request):
+def listaproveedores(request,idcli):
 	prov = Proveedor.objects.all()
-	#cliente = Cliente.objects.get(id=idcli)
+	cliente = Cliente.objects.get(id=idcli)
 	temp = loader.get_template("listaprovees.html")
-	context = {"proveedores":prov}
+	context = {"proveedores":prov,"nombrecli":cliente.nombre,"apellidocli":cliente.apellido, "idcli":idcli}
 	return HttpResponse(temp.render(context))
 
 

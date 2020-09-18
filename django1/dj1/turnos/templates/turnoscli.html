@@ -22,13 +22,14 @@
 		<div class="container">
 		  <div class="nav-wrapper">
 			<div class="col s12">
-			  <a href="#!" class="breadcrumb">Home</a>
+			  <a href="/turnos/homecliente/{{idcli}}" class="breadcrumb">Home</a>
+			  <a href="#!" class="breadcrumb">Mis Turnos</a>
 			</div>
 		  </div>
 		</div>  
 	  </nav>
 	  <!--breadcrumbs-->
-    <h4 align="center"> Mis turnos</h4>
+	<h4 align="center"> Mis turnos</h4>
 <div align="center">
   <table cellspacing="10" cellpadding="10" border="3" >
 
@@ -50,7 +51,7 @@
       {% endfor %}
    
     </table>
-    <button class="btn btn-info" type="button" ><a href="/turnos/homecliente/misturnos/lista/" target="_blank">Programar nuevo turno</a><span class="caret"></span>
+    <button class="btn btn-info" type="button" ><a href="/turnos/homecliente/misturnos/lista/{{idcli}}" target="">Programar nuevo turno</a><span class="caret"></span>
     </button>
 </div>
 </body>
