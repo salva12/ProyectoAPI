@@ -2,6 +2,48 @@
 {% load static %}
 {% block content %} 
 
+  <script type="text/javascript">
+  (function(document) {
+    'use strict';
+
+    var LightTableFilter = (function(Arr) {
+
+      var _input;
+
+      function _onInputEvent(e) {
+        _input = e.target;
+        var tables = document.getElementsByClassName(_input.getAttribute('data-table'));
+        Arr.forEach.call(tables, function(table) {
+          Arr.forEach.call(table.tBodies, function(tbody) {
+            Arr.forEach.call(tbody.rows, _filter);
+          });
+        });
+      }
+
+      function _filter(row) {
+        var text = row.textContent.toLowerCase(), val = _input.value.toLowerCase();
+        row.style.display = text.indexOf(val) === -1 ? 'none' : 'table-row';
+      }
+
+      return {
+        init: function() {
+          var inputs = document.getElementsByClassName('light-table-filter');
+          Arr.forEach.call(inputs, function(input) {
+            input.oninput = _onInputEvent;
+          });
+        }
+      };
+    })(Array.prototype);
+
+    document.addEventListener('readystatechange', function() {
+      if (document.readyState === 'complete') {
+        LightTableFilter.init();
+      }
+    });
+
+  })(document);
+  </script>
+
 <body>
 	<body>
 		<nav class="navbar deep-purple lighten-2 z-depth-3">
@@ -22,7 +64,9 @@
 		<div class="container">
 		  <div class="nav-wrapper">
 			<div class="col s12">
-			  <a href="#!" class="breadcrumb">Home</a>
+        <a href="/turnos/homecliente/{{idcli}}" class="breadcrumb">Home  </a>
+        <a href="/turnos/homecliente/misturnos/{{idcli}}" class="breadcrumb">Mis Turnos  </a>
+        <a href="#!" class="breadcrumb">Proveedores</a>
 			</div>
 		  </div>
 		</div>  
@@ -34,7 +78,6 @@
       <body>
         <div class="container">
           
-    
             <div style="height:50px">
                 <h3>Proveedores de turnos</h3>
              </div>
@@ -52,9 +95,8 @@
                 <th>DIRECCION</th>
                 <th>TEL</th>
                 <th>MAIL</th>
-                <th>DESCRIPCION</th>
                 <TH>RUBRO</TH>
-                <th>ACCIONES</th>
+                <th>TURNOS</th>
               </tr>
             </thead>
             {% for prove in proveedores %}
@@ -72,13 +114,11 @@
     
                 <td>{{ prove.mail }}</td>
     
-                <td>{{ prove.descripcion }}</td>
-    
                 <td>{{ prove.rubro }}</td>
     
                 <TD>
-                  <button class="btn btn-info" type="button">
-                          Programar turno<span class="caret"></span>
+                  <button class="btn btn-info" type="button" >
+                          Ver<span class="caret"></span>
                         </button>
                 </TD>
     
