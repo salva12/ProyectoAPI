@@ -18,7 +18,10 @@ def get_turnoscli(request,idcli):
 	turnos = Turno.objects.all().filter(idcliente=idcli)
 	cliente = Cliente.objects.get(id=idcli)
 	temp = loader.get_template("turnoscli.html")
-	context = {"turnos":turnos,"clienteape":cliente.apellido,"clientenom":cliente.nombre,"idcli":idcli}
+	context = {	"turnos":turnos,
+				"apellidocli":cliente.apellido,
+				"nombrecli":cliente.nombre,
+				"idcli":idcli}
 	return HttpResponse(temp.render(context))
 
 def layoutview(request):
@@ -36,7 +39,10 @@ def listaproveedores(request,idcli):
 	prov = Proveedor.objects.all()
 	cliente = Cliente.objects.get(id=idcli)
 	temp = loader.get_template("listaprovees.html")
-	context = {"proveedores":prov,"nombrecli":cliente.nombre,"apellidocli":cliente.apellido, "idcli":idcli}
+	context = {	"proveedores":prov,
+				"nombrecli":cliente.nombre,
+				"apellidocli":cliente.apellido,
+				"idcli":idcli}
 	return HttpResponse(temp.render(context))
 
 def turnosprov(request,idcli,idprov):
@@ -44,7 +50,11 @@ def turnosprov(request,idcli,idprov):
 	cliente = Cliente.objects.get(id=idcli)
 	prov = Proveedor.objects.get(id=idprov)
 	temp = loader.get_template("turnos3.html")
-	context = { "turnoslibres":turnoslibres,"idprov":prov,"nombrecli":cliente.nombre,"apellidocli":cliente.apellido,"idcli":idcli}
+	context = { "turnoslibres":turnoslibres,
+				"idprov":prov,
+				"nombrecli":cliente.nombre,
+				"apellidocli":cliente.apellido,
+				"idcli":idcli}
 	return HttpResponse(temp.render(context))
 
 def confirmacion(request,idcli,idprov,idturno):
@@ -52,7 +62,11 @@ def confirmacion(request,idcli,idprov,idturno):
 	cliente = Cliente.objects.get(id=idcli)
 	prov = Proveedor.objects.get(id=idprov)
 	temp = loader.get_template("confirmacion.html")
-	context = {"cliente":cliente,"turnos":turno,"proveedores":prov}
+	context = {	"cliente":cliente,
+				"apellidocli":cliente.apellido,
+				"nombrecli":cliente.nombre,
+				"turnos":turno,
+				"proveedores":prov}
 	return HttpResponse(temp.render(context))
 
 def exito(request,idcli,idprov,idturno):
@@ -62,7 +76,16 @@ def exito(request,idcli,idprov,idturno):
 	turno.idcliente = cliente
 	turno.fecha_solicitud = datetime.now()
 	turno.save()
-	context = {"idcli":idcli,"cliente":cliente,"fechaturno":turno.fecha_turno,"profesionalap":turno.idproveedor.apellido,"profesionalnom":turno.idproveedor.nombre,"dirprof":turno.idproveedor.direccion,"celprof":turno.idproveedor.tel,"cuitprof":turno.idproveedor.cuit}
+	context = {	"idcli":idcli,
+				"cliente":cliente,
+				"apellidocli":cliente.apellido,
+				"nombrecli":cliente.nombre,
+				"fechaturno":turno.fecha_turno,
+				"profesionalap":turno.idproveedor.apellido,
+				"profesionalnom":turno.idproveedor.nombre,
+				"dirprof":turno.idproveedor.direccion,
+				"celprof":turno.idproveedor.tel,
+				"cuitprof":turno.idproveedor.cuit}
 	return HttpResponse(temp.render(context))
 
 
