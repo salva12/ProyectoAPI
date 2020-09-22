@@ -13,9 +13,27 @@
 	</div>
   </div>
 </nav>
-<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<!--carousel-->
+<script>
+	$(document).ready(function(){
+		$('.carousel').carousel({
+			fullWidth:false,
+			indicators: true,
+		}).height(400).width(1300);
+		
+		setInterval(function(){
+			$('.carousel').carousel('next');
+		},2000);
+	})
+</script>
 	<body>
-	  <!--breadcrumbs-->
+	<!--breadcrumbs-->
 	  <nav class="#7986cb indigo lighten-3">
 		<div class="container">
 		  <div class="nav-wrapper">
@@ -25,19 +43,14 @@
 		  </div>
 		</div>  
 	  </nav>
-	  <!--breadcrumbs-->
-	<div class="container">
-		<div class="row">
-		  <div class="col-sm">
-			<a href="">Noticias</a>
-		  </div>
-		  <div class="col-sm">
-			<a href="/turnos/homecliente/misturnos/{{idcli}}">Gestionar Turnos</a>
-		  </div>
-		  <div class="col-sm">
-			<a href="">Configuraciones</a>
-		  </div>
-		</div>
-	  </div>
+	<!--breadcrumbs-->
+	<!--carrousel-->
+		<div class="carousel">
+			<a class="carousel-item" href="#one!"><img src="/static/img/newspaper.png" ><h5 align="center">Noticias</h5></a>
+			<a class="carousel-item" href="/turnos/homecliente/misturnos/{{idcli}}"><img src="/static/img/appointment.png" ><h5 align="center">Gestionar Turnos</h5></a>
+			<a class="carousel-item" href="#five!"><img src="/static/img/settings (2).png"><h5 align="center">Configuraciones</h5></a>
+		 </div>
+	<!--carrousel-->	
 </body>
+
 {% endblock %}  

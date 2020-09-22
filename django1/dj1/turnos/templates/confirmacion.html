@@ -55,7 +55,7 @@
                 </div>
               </div>
     
-              <div class="col s2 m4">
+              <div class="col s2 m4"> 
                 <div class="card indigo lighten-2">
                   <div class="card-content white-text">
                     <span class="card-title"><i class="material-icons">person</i><b> PACIENTE </b></span>
@@ -78,6 +78,22 @@
                 </div>
               </div>
             <div class="container center">
+              <p>
+                <label>
+                  <input id="indeterminate-checkbox" type="checkbox" />
+                  <span>Recordarme 1hs antes</span>
+                </label>
+              </p>
+              <p>
+                <label>
+                  <input id="indeterminate-checkbox" type="checkbox" />
+                  <span>Avisarme si se libera un turno antes</span>
+                </label>
+              </p>
+
+            </div>
+            <div class="container center">
+              <BR></BR>
               <a class="waves-effect waves-light btn-small #7986cb indigo lighten-2" href="/turnos/homecliente/misturnos/{{cliente.id}}/lista" ><B> Volver</B></a>
               <a class="waves-effect waves-light btn-small #7986cb indigo lighten-2" href="/turnos/homecliente/misturnos/{{cliente.id}}/lista/turnosprov/{{proveedores.id}}/confirmar/{{turnos.id}}/exito "><b>Programar</b></a>
             </div>          

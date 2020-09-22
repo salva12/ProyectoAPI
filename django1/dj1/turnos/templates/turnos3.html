@@ -50,58 +50,55 @@
                   </div>
             </div>
             <div class="card-tabs">
-            <ul class="tabs tabs-fixed-width">
-                <li class="tab"><a class="active" href="#test4">Informacion</a></li>
-                <li class="tab"><a href="#test5">Opiniones</a></li>
-            </ul>
+              <ul class="tabs tabs-fixed-width">
+                  <li class="tab"><a class="active" href="#test3">Turnos</a></li>
+                  <li class="tab"><a href="#test4">Informacion</a></li>
+                  <li class="tab"><a href="#test5">Opiniones</a></li>
+              </ul>
             </div>
-            <div class="card-content grey lighten-4">
-            <div id="test4">
-                <div class="div container">
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum illo expedita incidunt, pariatur ab iste ea porro veritatis odio placeat optio dignissimos natus, ipsa accusantium dolores ad amet eligendi blanditiis?</p><br>
-                <p><i class="tiny material-icons">local_phone</i>{{idprov.tel}}</p><br>
-                <p><i class="tiny material-icons">location_on</i>{{idprov.direccion}}</p><br>
-                </div>
-            </div>
-            <div id="test5" class="col s6">
-                <div class="container">
-                    <div class="container">
-                        <h6><b>Contanos como fue tu experiencia con el medico?</b></h6><br>
-                    <div class="contianer">
-                        <div class="row">
-                            <div class="col s3 right">
-                                <a class="btn-floating btn waves-effect waves-light green accent-4"><i class="material-icons large">sentiment_very_satisfied</i></a>
-                                <a class="btn-floating btn waves-effect waves-light green accent-4"><i class="material-icons large">sentiment_satisfied</i></a>
-                                <a class="btn-floating btn waves-effect waves-light green accent-4"><i class="material-icons large">sentiment_dissatisfied</i></a>
+            <div class="card-content">
+              <div id=test3>
+                <!--Turnos-->
+                  <div class="container">
+                    <div class="row">
+                      {% for turno in turnoslibres %}
+                        <div class="col s2 m3">
+                          <div class="card">
+                            <div class="card-content dark-text">
+                              <span class="card-title"><h6><b>{{turno.fecha_turno}}</b></h6></span>
                             </div>
-                        </div> 
+                            <div class="card-action">
+                              <a class="waves-effect waves-light btn #7986cb indigo lighte n-2" href="/turnos/homecliente/misturnos/{{idcli}}/lista/turnosprov/{{turno.idproveedor.id}}/confirmar/{{turno.id}}"><i class="material-icons right">check</i>ir</a>
+                            </div>
+                          </div>
+                        </div>
+                        {% endfor %}
+                    </div>    
+                  </div>  
+                <!--Turnos-->
+              </div>
+              <!--informacion-->
+              <div id="test4">
+                  <div class="container">
+                  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum illo expedita incidunt, pariatur ab iste ea porro veritatis odio placeat optio dignissimos natus, ipsa accusantium dolores ad amet eligendi blanditiis?</p><br>
+                  <p><i class="tiny material-icons">local_phone</i>{{idprov.tel}}</p><br>
+                  <p><i class="tiny material-icons">location_on</i>{{idprov.direccion}}</p><br>
+                  </div>
+              </div>
+              <!--informacion-->
+              <!--opiniones-->
+              <div id="test5" class="col s6">
+                      <div class="container center">
+                          <h6><b>Contanos como fue tu experiencia con el medico?</b></h6><br> 
+                          <a class="btn-floating btn waves-effect waves-light green accent-4"><i class="material-icons large">sentiment_very_satisfied</i></a>
+                          <a class="btn-floating btn waves-effect waves-light green accent-4"><i class="material-icons large">sentiment_satisfied</i></a>
+                          <a class="btn-floating btn waves-effect waves-light green accent-4"><i class="material-icons large">sentiment_dissatisfied</i></a>  
+                      </div>
                 </div>
+              <!--opiniones-->
             </div>
-            </div>
-        </div>
     </div>
   <!--Imagen tarjeta con pesatañas informacion y opiniones-->
-  <!--Turnos-->
-  
-    <div class="container">
-      <div class="row">
-        {% for turno in turnoslibres %}
-          <div class="col s2 m3">
-            <div class="card">
-              <div class="card-content dark-text">
-                <span class="card-title"><h6><b>{{turno.fecha_turno}}</b></h6></span>
-              </div>
-              <div class="card-action">
-                <a class="waves-effect waves-light btn #7986cb indigo lighte n-2" href="/turnos/homecliente/misturnos/{{idcli}}/lista/turnosprov/{{turno.idproveedor.id}}/confirmar/{{turno.id}}"><i class="material-icons right">check</i>ir</a>
-              </div>
-            </div>
-          </div>
-          {% endfor %}
-      </div>    
-    </div>  
-    
-    <!--Turnos-->
-    
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <script>
@@ -111,4 +108,4 @@
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
-{% endblock %}
+{% endblock %}  
