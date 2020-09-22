@@ -25,7 +25,7 @@
 		$('.carousel').carousel({
 			fullWidth:false,
 			indicators: true,
-		}).height(400).width(1300);
+		}).height(400);
 		
 		setInterval(function(){
 			$('.carousel').carousel('next');
@@ -45,11 +45,13 @@
 	  </nav>
 	<!--breadcrumbs-->
 	<!--carrousel-->
-		<div class="carousel">
-			<a class="carousel-item" href="#one!"><img src="/static/img/newspaper.png" ><h5 align="center">Noticias</h5></a>
-			<a class="carousel-item" href="/turnos/homecliente/misturnos/{{idcli}}"><img src="/static/img/appointment.png" ><h5 align="center">Gestionar Turnos</h5></a>
-			<a class="carousel-item" href="#five!"><img src="/static/img/settings (2).png"><h5 align="center">Configuraciones</h5></a>
-		 </div>
+		<div class="conteiner">
+			<div class="carousel " style="display: flexx; margin: auto;">
+				<a class="carousel-item" href="#one!"><img src="/static/img/newspaper.png" ><h5 align="center">Noticias</h5></a>
+				<a class="carousel-item" href="/turnos/homecliente/misturnos/{{idcli}}"><img src="/static/img/appointment.png" ><h5 align="center">Gestionar Turnos</h5></a>
+				<a class="carousel-item" href="#five!"><img src="/static/img/settings (2).png"><h5 align="center">Configuraciones</h5></a>
+			 </div>
+		</div>
 	<!--carrousel-->	
 </body>
 
