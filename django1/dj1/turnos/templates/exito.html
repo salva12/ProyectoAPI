@@ -1,29 +1,30 @@
 {%	extends "homeuser.html" %}
 {% load static %}
 {% block content %} 
-<nav class="navbar deep-purple lighten-2 z-depth-3">
-    <div class="container nav-wrapper ">
-      <a href="#" class="brand-logo"><img class="logo" src="{% static 'img/turnet_logo.svg' %}" alt=""></a>
-      <a href="#" data-target="menu-responsive" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+  
+<nav class="navbar indigo lighten-4 ">
+  <div class="container nav-wrapper ">
+    <a href="#" class="brand-logo "><img class="logo" src="{% static 'img/turnet.png' %}" alt=""></a>
+    <a href="#" data-target="menu-responsive" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 
-      <ul class="right hide-on-med-and-down">
-        <li><a class="white-text waves-effect waves-light transparent btn-flat" href="#">Nosotros</a></li>
-        <li><a class="registro transparent waves-effect waves-light btn" href="#">{{nombrecli}}, {{apellidocli}}<i class="material-icons right">person</i></a></li>
-      </ul>
-    </div>
+    <ul class="right hide-on-med-and-down">
+    <li><a class="white-text waves-effect waves-light transparent btn-flat" href="#">Nosotros</a></li>
+    <li><a class="registro transparent waves-effect waves-light btn" href="#"><i class="material-icons right">person</i>{{cliente.apellido}}, {{cliente.nombre}}</a></li>
+    </ul>
   </div>
-  </nav>			
-
+  </div>
+</nav>
 <!--breadcrumbs-->
-<nav class="#7986cb indigo lighten-2">
+<nav class="#7986cb indigo lighten-3">
 <div class="container">
   <div class="nav-wrapper">
     <div class="col s12">
       <a href="/turnos/homecliente/{{idcli}}" class="breadcrumb">Home</a>
-      <a href="#!" class="breadcrumb">Mis Turnos</a>
-      <a href="#!" class="breadcrumb">Proveedores</a>
-      <a href="#!" class="breadcrumb">Turnos Disponibles</a>
-      <a href="#!" class="breadcrumb">Turno Exitoso</a>
+      <a href="/turnos/homecliente/misturnos/{{idcli}}" class="breadcrumb">Mis Turnos</a>
+      <a href="/turnos/homecliente/misturnos/{{idcli}}/lista" class="breadcrumb">Proveedores</a>
+      <a href="/turnos/homecliente/misturnos/{{idcli}}/lista/turnosprov/{{turno.id}}" class="breadcrumb">Turnos Disponibles</a>
+      <a href="/turnos/homecliente/misturnos/{{cliente.id}}/lista/turnosprov/{{prov.id}}/confirmar/{{turno.id}}" class="breadcrumb">Confirmacion</a>
+      <a href="" class="breadcrumb">Éxito</a>
     </div>
   </div>
 </div>  
@@ -45,7 +46,9 @@
           <div class="card indigo lighten-2">
             <div class="card-content white-text">
               <span class="card-title"><i class="material-icons">person</i><b> PACIENTE </b></span>
-              <p><b>{{nombrecli}}, {{apellidocli}}</b></p>
+              <p><b>{{cliente.nombre}}, {{cliente.apellido}}</b></p>
+              <p>{{cliente.mail}}</p>
+              <p>{{cliente.tel}}</p>
             </div>
           </div>
         </div>
@@ -54,15 +57,30 @@
           <div class="card indigo lighten-2">
             <div class="card-content white-text">
               <span class="card-title"><i class="material-icons">apartment</i><b> PROFESIONAL </b></span>
-              <p><b>Dr. {{profesional}}</b></p>
+              <p><b>{{profesionalap}}, {{profesionalnom}}</b></p>
+              <p>CUIT - {{cuitprof}}</p>
               <p>{{dirprof}}</p>
               <p>{{celprof}}</p>
             </div>
           </div>
-        </div>
+        </div><br>
         <h5 align='center'>¡Muchas gracias por confiar en nosotros!</h5>
       <div class="container center">
-        <a class="waves-effect waves-light btn-small #7986cb indigo lighten-2">Volver</a>
+        <a class="waves-effect waves-light btn-small #7986cb indigo lighten-2" href="/turnos/homecliente/misturnos/{{idcli}}">Mis Turnos</a>
+        <a class="waves-effect waves-light btn-small #7986cb indigo lighten-2"href="/turnos/homecliente/misturnos/{{idcli}}/lista">Nuevo Turno</a>
       </div>          
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+       
 
 {% endblock %}

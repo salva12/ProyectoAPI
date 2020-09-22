@@ -42,18 +42,28 @@ def listaproveedores(request,idcli):
 def turnosprov(request,idcli,idprov):
 	turnoslibres = Turno.objects.all().filter(idproveedor=idprov,idcliente__isnull=True )
 	cliente = Cliente.objects.get(id=idcli)
-	temp = loader.get_template("turnosprov.html")
-	context = { "turnoslibres":turnoslibres,"nombrecli":cliente.nombre,"apellidocli":cliente.apellido,"idcli":idcli}
+	prov = Proveedor.objects.get(id=idprov)
+	temp = loader.get_template("turnos3.html")
+	context = { "turnoslibres":turnoslibres,"idprov":prov,"nombrecli":cliente.nombre,"apellidocli":cliente.apellido,"idcli":idcli}
 	return HttpResponse(temp.render(context))
 
 def confirmacion(request,idcli,idprov,idturno):
 	turno = Turno.objects.get(id=idturno)
 	cliente = Cliente.objects.get(id=idcli)
+	prov = Proveedor.objects.get(id=idprov)
+	temp = loader.get_template("confirmacion.html")
+	context = {"cliente":cliente,"turnos":turno,"proveedores":prov}
+	return HttpResponse(temp.render(context))
+
+def exito(request,idcli,idprov,idturno):
+	turno = Turno.objects.get(id=idturno)
+	cliente = Cliente.objects.get(id=idcli)	
+	temp = loader.get_template("exito.html")
 	turno.idcliente = cliente
 	turno.fecha_solicitud = datetime.now()
 	turno.save()
-	temp = loader.get_template("exito.html")
-	context = {"nombrecli":cliente.nombre,"apellidocli":cliente.apellido,"idcli":idcli,"fechaturno":turno.fecha_turno,"profesional":turno.idproveedor.apellido,"dirprof":turno.idproveedor.direccion,"celprof":turno.idproveedor.tel}
+	context = {"idcli":idcli,"cliente":cliente,"fechaturno":turno.fecha_turno,"profesionalap":turno.idproveedor.apellido,"profesionalnom":turno.idproveedor.nombre,"dirprof":turno.idproveedor.direccion,"celprof":turno.idproveedor.tel,"cuitprof":turno.idproveedor.cuit}
 	return HttpResponse(temp.render(context))
+
 
 	

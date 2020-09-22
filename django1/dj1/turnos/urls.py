@@ -10,4 +10,5 @@ urlpatterns = [
     path('homecliente/misturnos/<int:idcli>/lista/', views.listaproveedores),
     path('homecliente/misturnos/<int:idcli>/lista/turnosprov/<int:idprov>',views.turnosprov),
     path('homecliente/misturnos/<int:idcli>/lista/turnosprov/<int:idprov>/confirmar/<int:idturno>',views.confirmacion),
+    path('homecliente/misturnos/<int:idcli>/lista/turnosprov/<int:idprov>/confirmar/<int:idturno>/exito',views.exito),
 ]

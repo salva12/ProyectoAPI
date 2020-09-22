@@ -1,23 +1,29 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <title>Tabla de turnos</title>
-</head>
+{%	extends "homeuser.html" %}
+{% load static %}
+{% block content %} 
+
 <body>
+  <nav class="navbar indigo lighten-4 ">
+    <div class="container nav-wrapper ">
+      <a href="#" class="brand-logo "><img class="logo" src="{% static 'img/turnet.png' %}" alt=""></a>
+      <a href="#" data-target="menu-responsive" class="sidenav-trigger"><i class="material-icons">menu</i></a>
   
+      <ul class="right hide-on-med-and-down">
+      <li><a class="white-text waves-effect waves-light transparent btn-flat" href="#">Nosotros</a></li>
+      <li><a class="registro transparent waves-effect waves-light btn" href="#"><i class="material-icons right">person</i>{{apellidocli}}, {{nombrecli}}</a></li>
+      </ul>
+    </div>
+    </div>
+</nav>
   <!--breadcrumbs-->
-  <nav class="#7986cb indigo lighten-2">
+  <nav class="#7986cb indigo lighten-3">
     <div class="container">
       <div class="nav-wrapper">
         <div class="col s12">
-          <a href="#!" class="breadcrumb">Home</a>
-          <a href="#!" class="breadcrumb">Medicos Clinicos</a>
-          <a href="#!" class="breadcrumb">Dr. Hibbert</a>
+          <a href="/turnos/homecliente/{{idcli}}" class="breadcrumb">Home</a>
+          <a href="/turnos/homecliente/misturnos/{{idcli}}" class="breadcrumb">Mis Turnos</a>
+          <a href="/turnos/homecliente/misturnos/{{idcli}}/lista" class="breadcrumb">Proveedores</a>
+          <a href="#!" class="breadcrumb">Turnos Disponibles</a>
         </div>
       </div>
     </div>  
@@ -32,12 +38,13 @@
             <div class="card-content">
                 <div class="row valign-wrapper">
                     <div class="col s2">
-                      <img src="media/hibbert.jpg" alt="img_proveedor" class="circle responsive-img max-width: auto height:auto"> <!-- notice the "circle" class -->
+                      <img src="/static/img/Julius_Hibbert.png" alt="img_proveedor" class="circle responsive-img max-width: auto height:auto"> <!-- notice the "circle" class -->
                     </div>
                     <div class="col s10">
                       <span class="black-text">
-                        <h4><b>Dr. Hibbert</b></h4>
-                        <h6>Medico clinico - MP 3456</h6>
+                        <h4><b>{{idprov.nombre}}, {{idprov.apellido}}</b></h4>
+                        <h6>{{idprov.rubro}}</h6>
+                        <h6>CUIT - {{idprov.cuit}}</h6>
                       </span>
                     </div>
                   </div>
@@ -52,8 +59,8 @@
             <div id="test4">
                 <div class="div container">
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum illo expedita incidunt, pariatur ab iste ea porro veritatis odio placeat optio dignissimos natus, ipsa accusantium dolores ad amet eligendi blanditiis?</p><br>
-                <p><i class="tiny material-icons">local_phone</i> 3624-775533</p><br>
-                <p><i class="tiny material-icons">location_on</i> Calle falsa , 123</p><br>
+                <p><i class="tiny material-icons">local_phone</i>{{idprov.tel}}</p><br>
+                <p><i class="tiny material-icons">location_on</i>{{idprov.direccion}}</p><br>
                 </div>
             </div>
             <div id="test5" class="col s6">
@@ -75,60 +82,24 @@
     </div>
   <!--Imagen tarjeta con pesatañas informacion y opiniones-->
   <!--Turnos-->
+  
     <div class="container">
       <div class="row">
+        {% for turno in turnoslibres %}
           <div class="col s2 m3">
             <div class="card">
               <div class="card-content dark-text">
-                <span class="card-title"><h5><b>18 - SEP</b></h5></span>
-                <p>de 8 a 9 am</p>
+                <span class="card-title"><h6><b>{{turno.fecha_turno}}</b></h6></span>
               </div>
               <div class="card-action">
-                <a class="waves-effect waves-light btn #7986cb indigo lighten-2"><i class="material-icons right">check</i>Agendar</a>
+                <a class="waves-effect waves-light btn #7986cb indigo lighte n-2" href="/turnos/homecliente/misturnos/{{idcli}}/lista/turnosprov/{{turno.idproveedor.id}}/confirmar/{{turno.id}}"><i class="material-icons right">check</i>ir</a>
               </div>
             </div>
           </div>
-
-          <div class="row">
-            <div class="col s2 m3">
-              <div class="card">
-                <div class="card-content dark-text">
-                  <span class="card-title"><h5><b>18 - SEP</b></h5></span>
-                  <p>de 9 a 10 am</p>
-                </div>
-                <div class="card-action">
-                  <a class="waves-effect waves-light btn #7986cb indigo lighten-2"><i class="material-icons right">check</i>Agendar</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col s2 m3">
-                <div class="card">
-                  <div class="card-content dark-text">
-                    <span class="card-title"><h5><b>21 - SEP</b></h5></span>
-                    <p>de 7 a 8 am</p>
-                  </div>
-                  <div class="card-action">
-                    <a class="waves-effect waves-light btn #7986cb indigo lighten-2"><i class="material-icons right">check</i>Agendar</a>
-                  </div>
-                </div>
-              </div>
-
-                <div class="row">
-                  <div class="col s2 m3">
-                    <div class="card">
-                      <div class="card-content dark-text">
-                        <span class="card-title"><h5><b>22 - SEP</b></h5></span>
-                        <p>de 11 a 12 am</p>
-                      </div>
-                      <div class="card-action">
-                        <a class="waves-effect waves-light btn indigo lighten-2"><i class="material-icons right">check</i>Agendar</a>
-                      </div>
-                    </div>
-                  </div>
+          {% endfor %}
       </div>    
     </div>  
+    
     <!--Turnos-->
     
     
@@ -140,4 +111,4 @@
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
-</html>
+{% endblock %}
