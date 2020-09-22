@@ -77,6 +77,8 @@ def exito(request,idcli,idprov,idturno):
 	turno.fecha_solicitud = datetime.now()
 	turno.save()
 	context = {	"idcli":idcli,
+				"idprov":idprov,
+				"idturno":idturno,
 				"cliente":cliente,
 				"apellidocli":cliente.apellido,
 				"nombrecli":cliente.nombre,
