@@ -23,5 +23,5 @@ urlpatterns = [
     path('',views.login),
     path('admin/', admin.site.urls),
     path('turnos/',include('turnos.urls')),
-]
+] #+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

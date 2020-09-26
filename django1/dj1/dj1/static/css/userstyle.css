@@ -1,0 +1,23 @@
+*{
+    margin:0;
+    padding:0;
+    font-family: 'Nunito', sans-serif;
+}
+
+
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+
+    .logo{
+        height: 100px;
+        width: 100px;
+    }
+
+.navbar{
+    height: 100px;
+}
